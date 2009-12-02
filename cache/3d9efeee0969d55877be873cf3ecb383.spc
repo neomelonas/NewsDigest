@@ -1,1 +1,0 @@
-a:3:{s:3:"url";s:25:"http://www.techcrunch.com";s:8:"feed_url";s:38:"http://feedproxy.google.com/TechCrunch";s:5:"build";s:14:"20090627192103";}

@@ -1,1 +1,0 @@
-a:3:{s:3:"url";s:21:"http://lifehacker.com";s:8:"feed_url";s:31:"http://lifehacker.com/index.xml";s:5:"build";s:14:"20090627192103";}
