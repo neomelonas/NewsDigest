@@ -1,0 +1,1 @@
+a:3:{s:3:"url";s:21:"http://news.cnet.com/";s:8:"feed_url";s:38:"http://news.cnet.com/2547-1_3-0-20.xml";s:5:"build";s:14:"20090627192103";}
