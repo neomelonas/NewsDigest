@@ -7,6 +7,3 @@ lib/js/ga.js
 
 lib/php/*.old
 
-!cache/
-cache/*
-
