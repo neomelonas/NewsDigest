@@ -1,0 +1,11 @@
+.* # Ignore all dotfiles...
+!.gitignore # except for .gitignore
+
+lib/img/favicon.ico
+
+lib/js/ga.js
+
+lib/php/*.old
+
+cache/*
+
