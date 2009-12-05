@@ -1,5 +1,6 @@
 .* # Ignore all dotfiles...
 !.gitignore # except for .gitignore
+*.itProject
 
 lib/img/favicon.ico
 
