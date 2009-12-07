@@ -27,8 +27,9 @@
 	</head>
 	<body>
 		<div id="container">
+			<a id="top"></a>
 			<div id="header">
-				<h1 class="title"><?php echo $plug; ?> Feed Digest</h1></li>
+				<h1 class="title"><?php echo $plug; ?> Feed Digest</h1>
 				<nav>
 				<div id="nav">
 				<ul>
@@ -74,6 +75,7 @@
 				<p><?php echo_memory_usage($memdebugz); ?> </p>
 			</div>
 		</div>
+		<a href="#top" class="backup">&uarr; Back to Top</a>
 		<?php include_once 'lib/js/ga.js'; ?>
 	</body>
 </html>
