@@ -75,7 +75,7 @@
 				<p><?php echo_memory_usage($memdebugz); ?> </p>
 			</div>
 		</div>
-		<a href="#top" class="backup">&uarr; Back to Top</a>
+		<a href="#top" class="backup">&uarr; Top</a>
 		<?php include_once 'lib/js/ga.js'; ?>
 	</body>
 </html>

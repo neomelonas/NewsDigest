@@ -46,4 +46,4 @@ span.charts{font-size:.7em;}
 .rsslink:hover{background-color:#fff;text-decoration:none;}
 
 img{border:0;}
-.backup{float:right;position:fixed;bottom:0;right:5px;}
+.backup{float:right;position:fixed;bottom:5px;right:5px;}
