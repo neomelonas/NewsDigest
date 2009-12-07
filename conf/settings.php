@@ -5,7 +5,7 @@
 	// If it is installed at the root of a (sub)domain, just put a "/", otherwise,
 	// enter the directory of the URL after the http://example.com/
 	// 
-	$uriPath = "";
+	$uriPath = "/";
 	
 	/*/
 	// A list of stocks for the SparkLines
