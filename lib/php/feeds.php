@@ -17,7 +17,7 @@
 		$feed->set_item_limit(5);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-		$feed->strip_htmltags(array_merge('center','img','i'));
+		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -39,7 +39,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-		$feed->strip_htmltags(array_merge('center','img','i'));
+		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -59,7 +59,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-		$feed->strip_htmltags(array_merge('center','img','i'));
+		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -77,7 +77,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-		$feed->strip_htmltags(array_merge('center','img','i'));
+		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -99,7 +99,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-		$feed->strip_htmltags(array_merge('center','img','i'));
+		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
