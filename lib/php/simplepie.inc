@@ -708,7 +708,7 @@ class SimplePie
 	 * @see SimplePie::strip_htmltags()
 	 * @access private
 	 */
-	var $strip_htmltags = array('base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style');
+	var $strip_htmltags = array('base', 'blink', 'body', 'doctype', 'embed', 'font', 'form', 'frame', 'frameset', 'html', 'iframe', 'input', 'marquee', 'meta', 'noscript', 'object', 'param', 'script', 'style','center');
 
 	/**
 	 * The SimplePie class contains feed level data and options
