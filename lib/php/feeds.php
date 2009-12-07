@@ -17,11 +17,7 @@
 		$feed->set_item_limit(5);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-<<<<<<< HEAD:lib/php/feeds.php
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
-=======
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
->>>>>>> ced3a19885b3dc92ed2fc1cad3d8e06136d5ad57:lib/php/feeds.php
+//		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -43,11 +39,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-<<<<<<< HEAD:lib/php/feeds.php
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
-=======
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
->>>>>>> ced3a19885b3dc92ed2fc1cad3d8e06136d5ad57:lib/php/feeds.php
+//		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -67,11 +59,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-<<<<<<< HEAD:lib/php/feeds.php
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
-=======
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
->>>>>>> ced3a19885b3dc92ed2fc1cad3d8e06136d5ad57:lib/php/feeds.php
+//		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -89,11 +77,7 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-<<<<<<< HEAD:lib/php/feeds.php
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
-=======
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
->>>>>>> ced3a19885b3dc92ed2fc1cad3d8e06136d5ad57:lib/php/feeds.php
+//		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
@@ -109,17 +93,13 @@
 			'http://online.wsj.com/xml/rss/3_7011.xml',
 			'http://www.businessweek.com/rss/bwdaily.rss',
 			'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-			'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed',
+//			'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed',
 			'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss'
 		));
 		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
 		$feed->set_cache_duration(900);
-<<<<<<< HEAD:lib/php/feeds.php
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center','img','i'));
-=======
-		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
->>>>>>> ced3a19885b3dc92ed2fc1cad3d8e06136d5ad57:lib/php/feeds.php
+//		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
 		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
