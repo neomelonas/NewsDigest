@@ -2,7 +2,6 @@
 	if ($newsType == 'business')
 	{
 	// Business
-	//	include ('/home/digest/lib/feeds/business') > $feedlist;
 		$feed = new SimplePie();
 		$feed->set_feed_url(array(
 			'http://feeds.reuters.com/reuters/businessNews',
@@ -17,6 +16,9 @@
 		$feed->set_stupidly_fast(true);
 		$feed->set_item_limit(5);
 		$feed->set_cache_location('./cache');
+		$feed->set_cache_duration(900);
+		$feed->strip_htmltags(array_merge('center','img'));
+		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
 		$plug = 'Business';
@@ -24,7 +26,6 @@
 	else if ($newsType == 'tech')
 	{
 	// Technology
-	//	include ('/home/digest/lib/feeds/tech') > $feedlist;
 		$feed = new SimplePie();
 		$feed->set_feed_url(array(
 			'http://feeds.reuters.com/reuters/technologyNews',
@@ -35,8 +36,11 @@
 			'http://news.cnet.com/',
 			'http://www.forbes.com/technology/index.xml'
 		));
-		$feed->set_cache_location('./cache');
 		$feed->set_stupidly_fast(true);
+		$feed->set_cache_location('./cache');
+		$feed->set_cache_duration(900);
+		$feed->strip_htmltags(array_merge('center'));
+		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
 		$plug = 'Technology';
@@ -44,7 +48,6 @@
 	else if ($newsType == 'politics')
 	{
 	// Politics
-	//	include ('/home/digest/lib/feeds/politics') > $feedlist;
 		$feed = new SimplePie();
 		$feed->set_feed_url(array(
 			'http://feeds.reuters.com/reuters/politicsNews',
@@ -53,8 +56,11 @@
 			'http://www.politico.com/rss/politicopicks.xml',
 			'http://feeds.feedburner.com/talking-points-memo?format=xml'
 		));
-		$feed->set_cache_location('./cache');
 		$feed->set_stupidly_fast(true);
+		$feed->set_cache_location('./cache');
+		$feed->set_cache_duration(900);
+		$feed->strip_htmltags(array_merge('center'));
+		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
 		$plug = 'Politics';
@@ -62,23 +68,24 @@
 	else if ($newsType == 'sports')
 	{
 	// Sports
-	//	include ('/home/digest/lib/feeds/sports') > $feedlist;
 		$feed = new SimplePie();
 		$feed->set_feed_url(array(
 			'http://sports.espn.go.com/espn/rss/news',
 			'http://rss.cnn.com/rss/si_topstories.rss',
 			'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=s&output=rss'
 		));
+		$feed->set_stupidly_fast(true);
 		$feed->set_cache_location('./cache');
-				$feed->set_stupidly_fast(true);
-				$feed->enable_order_by_date(true);
-				$feed->init();
-				$plug = 'Sports';	
+		$feed->set_cache_duration(900);
+		$feed->strip_htmltags(array_merge('center'));
+		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
+		$feed->enable_order_by_date(true);
+		$feed->init();
+		$plug = 'Sports';	
 	}
 	else 
 	{
 	// Regular News
-	//	include ('/home/digest/lib/feeds/news') > $feedlist;
 		$feed = new SimplePie();
 		$feed->set_feed_url(array(
 			'http://feeds.reuters.com/reuters/topNews',
@@ -89,8 +96,11 @@
 			'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed',
 			'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss'
 		));
-		$feed->set_cache_location('./cache');
 		$feed->set_stupidly_fast(true);
+		$feed->set_cache_location('./cache');
+		$feed->set_cache_duration(900);
+		$feed->strip_htmltags(array_merge('center'));
+		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
 		$feed->enable_order_by_date(true);
 		$feed->init();
 		$plug = 'News';
