@@ -27,21 +27,13 @@ function sparkLineStock($stock,$sname)
 	{ die('bad ticker ' . $stock); }
 	$year = 5;
 
-	/*
-	if (!isset($_GET['y']) ||
-	    !is_numeric($_GET['y']) ||
-	    $_GET['y'] > 5 ||
-	    $_GET['y'] < 0) {
-	  //die('bad year ' . $_GET['y']);
-	}
-	*/
 	//////////////////////////////////////////////////////////////////////////////
 	// load and process data from Yahoo! ichart csv source
 	//
 	$m  = date('n') - 1;
 	$d  = date('d');
 	$y2 = date('Y');
-	$y1 = $y2 - $year;//$_GET['y'];
+	$y1 = $y2 - $year;
 	
 	// data sample:
 	//   0        1     2     3     4     5        6

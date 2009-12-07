@@ -1,9 +1,10 @@
-	<?php
-
+<?php
+	// This should be set to the full path
 	require ('/home/digest/conf/settings.php');
-	require_once ('/home/digest/lib/php/simplepie.inc');
-	require_once ('/home/digest/lib/php/sparkline/Sparkline_Line.php');
-	include ('/home/digest/lib/php/functions.php');
+	
+	require_once ($install.'/lib/php/simplepie.inc');
+	require_once ($install.'/lib/php/sparkline/Sparkline_Line.php');
+	include ($install.'/lib/php/functions.php');
 
 	$newsType	= $_GET['type'];
 	populateFeed($newsType, $feed);
@@ -20,6 +21,8 @@
 		<![endif]-->
 		<link rel="shortcut icon" href="/lib/img/favicon.ico" type="image/x-icon" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-language" content="en" />
+		<meta name="description" content="A digest of popular newsfeeds.." />
 	</head>
 	<body>
 		<div id="container">
@@ -49,24 +52,24 @@
 			<div id="body">
 				<section class="news">
 					<?php
-						foreach ($feed->get_items() as $item)									
+					foreach ($feed->get_items() as $item)									
+					{
+						$feeds = $item->get_feed();
+						echo '<article><a href="'. $item->get_permalink() .'">'. $item->get_title() .'</a>&nbsp;<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a>';
+						echo '<p>'. $item->get_description() .'</p>';
+						echo '<p>'. $item->get_date().'</p></article>';
+						if ($counter == 10)
 						{
-							$feeds = $item->get_feed();
-							echo '<article><a href="'. $item->get_permalink() .'">'. $item->get_title() .'</a>&nbsp;<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a>';
-							echo '<p>'. $item->get_description() .'</p>';
-							echo '<p>'. $item->get_date().'</p></article>';
-							if ($counter == 10)
-							{
-								echo "<aside class='ad'>";
-								$counter = 0;
-//								include ('/home/digest/lib/js/ads.js');
-								echo "</details>THIS IS AN ADVERTISEMENT</details>";
-								echo "</aside>";
-							}
-							else
-							{ $counter = $counter + 1; }
-							echo '<hr />';
+							echo "<aside class='ad'>";
+							$counter = 0;
+							include ($install.'/lib/js/ads.js');
+							echo "</details>THIS IS AN ADVERTISEMENT</details>";
+							echo "</aside>";
 						}
+						else
+						{ $counter = $counter + 1; }
+						echo '<hr />';
+					}
 					?>
 				</section>
 			</div>
