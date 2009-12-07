@@ -16,11 +16,11 @@
 <html>
 	<head>
 		<title><?php echo $plug; ?> &lt; Feed Digest | neomelonas.com</title>
-		<link rel="stylesheet" type="text/css" href="/lib/css/newstyle.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/newstyle.css" />
 		<!--[if IE]>
-			<link rel="stylesheet" type="text/css" href="/lib/css/iestyle.css" />
+			<link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/iestyle.css" />
 		<![endif]-->
-		<link rel="shortcut icon" href="/lib/img/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="<?php echo $uriPath; ?>lib/img/favicon.ico" type="image/x-icon" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="content-language" content="en" />
 		<meta name="description" content="A digest of popular newsfeeds.." />
@@ -32,11 +32,11 @@
 				<nav>
 				<div id="nav">
 				<ul>
-					<li><a href="/">News</a></li>
-					<li><a href="/business/">Business</a></li>
-					<li><a href="/politics/">Politics</a></li>
-					<li><a href="/tech/">Technology</a></li>
-					<li><a href="/sports/">Sports</a></li>
+					<li><a href="<?php echo $uriPath; ?>">News</a></li>
+					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
+					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
+					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
+					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
 				</ul>
 				</div>
 				</nav>

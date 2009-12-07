@@ -2,8 +2,9 @@
 	// Set the install directory.
 	//   NO TRAILING SLASH
 	$install = "/home/digest";
-	// If it is installed at the root of a (sub)domain, leave it empty, otherwise,
+	// If it is installed at the root of a (sub)domain, just put a "/", otherwise,
 	// enter the directory of the URL after the http://example.com/
+	// 
 	$uriPath = "";
 	
 	/*/
