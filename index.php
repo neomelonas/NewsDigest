@@ -1,14 +1,15 @@
 <?php
 	// This should be set to the full path
 	require ('/home/digest/conf/settings.php');
-	
+
 	require_once ($install.'/lib/php/simplepie.inc');
 	require_once ($install.'/lib/php/sparkline/Sparkline_Line.php');
 	include ($install.'/lib/php/functions.php');
 
-	$newsType	= $_GET['type'];
-	populateFeed($newsType, $feed);
-	$feed->handle_content_type();
+	if (isset($_GET['type']))
+	{ $newsType	= $_GET['type']; }
+	else { $newsType = null; }
+	include ($install.'/lib/php/feeds.php');
 	$memuse	= number_format(memory_get_usage());
 ?>
 <!doctype html>
@@ -40,13 +41,8 @@
 				</div>
 				</nav>
 				<div id="charts">
-					<ul>
-						<li><?php sparkLineStock($stock1, $sname1); ?> &nbsp; <span class="charts"><?php echo $sname1; ?></span></li>
-						<li><?php sparkLineStock($stock2, $sname2); ?> &nbsp; <span class="charts"><?php echo $sname2; ?></span></li>
-						<li><?php sparkLineStock($stock3, $sname3); ?> &nbsp; <span class="charts"><?php echo $sname3; ?></span></li>
-					</ul>
+					<p>This feature is currently unavailable.</p>
 				</div>
-
 				<hr />
 			</div>
 			<div id="body">
@@ -78,6 +74,6 @@
 				<p><?php echo_memory_usage($memdebugz); ?> </p>
 			</div>
 		</div>
-	<?php include_once 'lib/js/ga.js'; ?>
+		<?php include_once 'lib/js/ga.js'; ?>
 	</body>
 </html>
