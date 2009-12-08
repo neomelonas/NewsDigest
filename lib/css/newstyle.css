@@ -45,11 +45,11 @@ span.charts{font-size:.7em;}
 
 #footbar{
 	position:fixed;
-	bottom:0;
+	bottom:5px;
 	text-align:center;
 	height:25px;
 	width:90%;
-	background-color:#ffffee;
+	background-color:#ffffff;
 	-moz-box-shadow: 3px 3px 3px #666;
 	-webkit-box-shadow: 3px 3px 3px #666;
 	box-shadow: 3px 3px 3px #666;
