@@ -63,5 +63,6 @@ span.charts{font-size:.7em;}
 .rsslink img{border:0}
 .rsslink:hover{background-color:#fff;text-decoration:none;}
 
+details{font-size:.5em;}
 img{border:0;}
 .backup{float:right;}/*position:fixed;bottom:5px;right:5px;}*/
