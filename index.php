@@ -60,7 +60,7 @@
 							echo "<aside class='ad'>";
 							$counter = 0;
 							include ($install.'/lib/js/ads.js');
-							echo "</details>THIS IS AN ADVERTISEMENT</details>";
+							echo "<details>THIS IS AN ADVERTISEMENT</details>";
 							echo "</aside>";
 						}
 						else
@@ -75,7 +75,18 @@
 				<p><?php echo_memory_usage($memdebugz); ?> </p>
 			</div>
 		</div>
-		<a href="#top" class="backup">&uarr; Top</a>
+		<div id="footbar">
+			<nav>
+				<ul>
+					<li><a href="<?php echo $uriPath; ?>">News</a></li>
+					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
+					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
+					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
+					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
+				</ul>
+			</nav>
+			<a href="#top" class="backup">&uarr; Top</a>
+		</div>
 		<?php include_once 'lib/js/ga.js'; ?>
 	</body>
 </html>
