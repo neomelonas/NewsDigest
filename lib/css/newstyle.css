@@ -49,13 +49,13 @@ span.charts{font-size:.7em;}
 	left:5%;
 	right:5%;
 	text-align:center;
-	height:25px;
+	height:40px;
 	background-color:#ffffff;
 	-moz-box-shadow: 2px -3px 4px #666;
 	-webkit-box-shadow: 2px -3px 4px #666;
 	box-shadow: 2px -3px 4px #666;
 }
-#footbar ul, #footbar li{padding:3px 5px;margin:0;}
+#footbar ul, #footbar li{padding:6px 6px;margin:0;}
 #footbar a{text-decoration:none;}
 
 .rsslink img{border:0}

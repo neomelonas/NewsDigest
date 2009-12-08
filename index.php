@@ -33,7 +33,7 @@
 				<nav>
 				<div id="nav">
 				<ul>
-					<li><a href="<?php echo $uriPath; ?>">News</a></li>
+					<li><a href="<?php echo $uriPath; ?>">Main</a></li>
 					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
@@ -78,7 +78,7 @@
 		<div id="footbar">
 			<nav>
 				<ul>
-					<li><a href="<?php echo $uriPath; ?>">News</a></li>
+					<li><a href="<?php echo $uriPath; ?>">Main</a></li>
 					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
