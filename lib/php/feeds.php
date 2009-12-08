@@ -93,7 +93,7 @@
 			'http://online.wsj.com/xml/rss/3_7011.xml',
 			'http://www.businessweek.com/rss/bwdaily.rss',
 			'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-			'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed',
+//			'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed',
 			'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss'
 		));
 		$feed->set_stupidly_fast(true);
