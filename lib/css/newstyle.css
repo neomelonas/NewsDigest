@@ -46,14 +46,17 @@ span.charts{font-size:.7em;}
 #footbar{
 	position:fixed;
 	bottom:0px;
-	left:5%;
-	right:5%;
+	left:4%;
+	right:4%;
 	text-align:center;
 	height:30px;
 	background-color:#ffffff;
-	-moz-box-shadow: -2px -3px 4px #666;
-	-webkit-box-shadow: -2px -3px 4px #666;
-	box-shadow: -2px -3px 4px #666;
+	-moz-box-shadow: 2px -3px 4px #666;
+	-moz-box-shadow: 2px -3px 4px #666;
+	-webkit-box-shadow: 2px -3px 4px #666;
+	-webkit-box-shadow: 2px -3px 4px #666;
+	box-shadow: 2px -3px 4px #666;
+	box-shadow: 2px -3px 4px #666;
 }
 #footbar ul, #footbar li{padding:6px 6px;margin:0;}
 #footbar a{text-decoration:none;}
