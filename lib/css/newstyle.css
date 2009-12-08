@@ -45,6 +45,7 @@ span.charts{font-size:.7em;}
 
 #footbar{
 	border:1px solid #666666;
+	border-bottom:0;
 	position:fixed;
 	bottom:0px;
 	left:4%;
