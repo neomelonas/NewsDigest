@@ -83,9 +83,9 @@
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
 					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
+					<li><a href="#top" class="backup">&uarr; Top</a></li>
 				</ul>
 			</nav>
-			<a href="#top" class="backup">&uarr; Top</a>
 		</div>
 		<?php include_once 'lib/js/ga.js'; ?>
 	</body>

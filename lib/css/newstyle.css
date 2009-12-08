@@ -48,11 +48,13 @@ span.charts{font-size:.7em;}
 	bottom:0;
 	text-align:center;
 	height:25px;
+	width:90%;
 	background-color:#ffffee;
 	-moz-box-shadow: 3px 3px 3px #666;
 	-webkit-box-shadow: 3px 3px 3px #666;
 	box-shadow: 3px 3px 3px #666;
 }
+
 #footbar a{text-decoration:none;}
 
 .rsslink img{border:0}
