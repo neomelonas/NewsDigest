@@ -33,5 +33,7 @@ span.charts{font-size:.7em;}
 #footer{text-align:right;}
 #footer p{color:#770000;font-size:.8em;}
 
+#footbar{filter: progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=135);}
+
 .rsslink img{border:0}
 .rsslink:hover{background-color:#fff;text-decoration:none;}
