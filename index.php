@@ -24,7 +24,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="content-language" content="en" />
 		<meta name="description" content="A digest of popular newsfeeds.." />
-		<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" />
+		<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" /><!-- Specific to THIS site. /-->
 	</head>
 	<body>
 		<div id="container">
@@ -32,7 +32,7 @@
 			<div id="header">
 				<h1 class="title"><?php echo $plug; ?> Feed Digest</h1>
 				<nav>
-				<div id="nav">
+				<div class="nav">
 				<ul>
 					<li><a href="<?php echo $uriPath; ?>">Main</a></li>
 					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
@@ -43,9 +43,7 @@
 				</ul>
 				</div>
 				</nav>
-				<div id="charts">
-					<p>This feature is currently unavailable.</p>
-				</div>
+				<div id="charts"></div>
 				<hr />
 			</div>
 			<div id="body">
@@ -56,13 +54,14 @@
 						$feeds = $item->get_feed();
 						echo '<article><a href="'. $item->get_permalink() .'">'. $item->get_title() .'</a>&nbsp;<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a>';
 						echo '<p>'. $item->get_description() .'</p>';
-						echo '<p>'. $item->get_date().'</p></article>';
+						echo '<p>'. $item->get_date().' | Source: <a href="'. $feeds->get_permalink() .'">'. $feeds->get_title() .'</a></p></article>';
 						if ($counter == 10)
 						{
+							echo '<hr />';
 							echo "<aside class='ad'>";
 							$counter = 0;
 							include ($install.'/lib/js/ads.js');
-							echo "<details>THIS IS AN ADVERTISEMENT</details>";
+							echo "<details>ADVERTISEMENT</details>";
 							echo "</aside>";
 						}
 						else
@@ -73,12 +72,14 @@
 				</section>
 			</div>
 			<div id="footer">
+			<footer>
 				<p>Powered by <a href="http://simplepie.org/">SimplePie</a>.  Historic stock data from <a href="http://finance.yahoo.com/">Yahoo! Finance</a>.  Design by <a href="http://neomelonas.com/">Neo Melonas</a> &copy;2009.</p>
 				<p><?php echo_memory_usage($memdebugz); ?> </p>
+			</footer>
 			</div>
 		</div>
 		<div id="footbar">
-			<nav>
+			<nav><!--[if IE]><div class="nav"><![endif]-->
 				<ul>
 					<li><a href="<?php echo $uriPath; ?>">Main</a></li>
 					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
@@ -88,7 +89,7 @@
 					<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
 					<li><a href="#top" class="backup">&uarr; Top</a></li>
 				</ul>
-			</nav>
+			<!--[if IE]></div><![endif]--></nav>
 		</div>
 		<?php include_once 'lib/js/ga.js'; ?>
 	</body>
