@@ -24,6 +24,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="content-language" content="en" />
 		<meta name="description" content="A digest of popular newsfeeds.." />
+		<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" />
 	</head>
 	<body>
 		<div id="container">
@@ -38,6 +39,7 @@
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
 					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
+					<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
 				</ul>
 				</div>
 				</nav>

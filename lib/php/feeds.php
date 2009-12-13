@@ -83,6 +83,27 @@
 		$feed->init();
 		$plug = 'Sports';	
 	}
+	else if ($newsType == 'entertainment')
+	{
+	// Entertainment
+		$feed = new SimplePie();
+		$feed->set_feed_url(array(
+			'http://www.eonline.com/syndication/feeds/rssfeeds/topstories.xml',
+			'http://rss.news.yahoo.com/rss/entertainment',
+			'http://rss.news.yahoo.com/rss/fashion',
+			'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=e&output=rss',
+			'http://rss.ew.com/web/ew/rss/todayslatest/index.xml',
+			'http://www.tmz.com/rss.xml'
+		));
+		$feed->set_stupidly_fast(true);
+		$feed->set_cache_location('./cache');
+		$feed->set_cache_duration(900);
+//		$feed->strip_htmltags(array_merge($feed->strip_htmltags, array('center'));
+		$feed->strip_attributes(array_merge($feed->strip_attributes, array('border')));
+		$feed->enable_order_by_date(true);
+		$feed->init();
+		$plug = 'Entertainment';	
+	}
 	else 
 	{
 	// Regular News
