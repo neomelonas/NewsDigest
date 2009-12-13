@@ -32,7 +32,17 @@ span.charts{font-size:.7em;}
 
 #footer{text-align:right;}
 #footer p{color:#770000;font-size:.8em;}
-
+#footbar{
+	border:1px solid #666666;
+	border-bottom:0;
+	position:fixed;
+	bottom:0px;
+	left:4%;
+	right:4%;
+	text-align:center;
+	height:30px;
+	background-color:#ffffff;
+}
 #footbar{filter: progid:DXImageTransform.Microsoft.Shadow(color=#666666,direction=135);}
 
 .rsslink img{border:0}
