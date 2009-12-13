@@ -1,12 +1,13 @@
 <?php
 /*
  * Sparkline PHP Graphing Library
- * Copyright 2004 James Byers <jbyers@users.sf.net>
+ * Copyright 2004 James Byers <jbyers@gmail.com>
  * http://sparkline.org
  *
- * Sparkline is distributed under a BSD License.  See LICENSE for details.
+ * Dual-licensed under the BSD (LICENSE-BSD.txt) and GPL (LICENSE-GPL.txt)
+ * licenses.
  *
- * $Id: Sparkline_Line.php,v 1.7 2005/01/06 02:40:46 jbyers Exp $
+ * $Id: Sparkline_Line.php,v 1.10 2008/03/11 19:12:49 jbyers Exp $
  *
  */
 
@@ -89,7 +90,7 @@ class Sparkline_Line extends Sparkline {
       $this->yMin = $this->dataSeriesStats[$series]['yMin'];
     }
 
-    if (!isset($this->yMin)) {
+    if (!isset($this->xMin)) {
       $this->xMin = $this->dataSeriesStats[$series]['XMin'];
     }
 
@@ -101,9 +102,9 @@ class Sparkline_Line extends Sparkline {
       $this->xMax = $this->dataSeriesStats[$series]['xMax'];
     }
 
-    for ($i = 0; $i < sizeof($this->dataSeries[$series]); $i ++) {
+    for ($i = 0; $i < sizeof($this->dataSeries[$series]); $i++) {
       $y = round(($this->dataSeries[$series][$i] + ($this->yMin * -1)) * ($yBound / $this->yMax));
-      $x = round($i * $xBound / sizeof($this->dataSeries[$series]));
+      $x = round($i * $xBound / (sizeof($this->dataSeries[$series]) - 1));
       $this->dataSeriesConverted[$series][] = array($x, $y);
       $this->Debug("Sparkline :: ConvertDataSeries series $series value $i ($x, $y)", DEBUG_SET);
     }

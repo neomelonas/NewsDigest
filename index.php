@@ -39,7 +39,7 @@
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
 					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-					<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
+					<li><a href="<?php echo $uriPath; ?>entertainment/">Entertainment</a></li>
 				</ul>
 				</div>
 				</nav>
@@ -86,7 +86,7 @@
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
 					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-					<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
+					<li><a href="<?php echo $uriPath; ?>entertainment/">Entertainment</a></li>
 					<li><a href="#top" class="backup">&uarr; Top</a></li>
 				</ul>
 			<!--[if IE]></div><![endif]--></nav>
