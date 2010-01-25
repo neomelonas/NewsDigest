@@ -43,7 +43,14 @@
 				</ul>
 				</div>
 				</nav>
-				<div id="charts"></div>
+				<div id="charts">
+					<p class="lies">This feature is currently unavailable.</p>
+					<ul>
+						<li><?php sparkLineStock($stock1, $sname1); ?> &nbsp; <span class="charts"><?php echo$sname1; ?></span></li>
+						<li><?php sparkLineStock($stock2, $sname2); ?> &nbsp; <span class="charts"><?php echo $sname2; ?></span></li>
+						<li><?php sparkLineStock($stock3, $sname3); ?> &nbsp; <span class="charts"><?php echo $sname3; ?></span></li>
+					</ul>
+				</div>
 				<hr />
 			</div>
 			<div id="body">
