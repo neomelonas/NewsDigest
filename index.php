@@ -3,7 +3,7 @@
 	require ('/home/digest/conf/settings.php');
 
 	require_once ($install.'/lib/php/simplepie.inc');
-	require_once ($install.'/lib/php/sparkline/Sparkline_Line.php');
+	//require_once ($install.'/lib/php/sparkline/Sparkline_Line.php');
 	include ($install.'/lib/php/functions.php');
 
 	if (isset($_GET['type']))
@@ -24,9 +24,23 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="content-language" content="en" />
 		<meta name="description" content="A digest of popular newsfeeds.." />
-		<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" /><!-- Specific to THIS site. /-->
+		<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" /><!-- 
+Specific to THIS site. /-->
 	</head>
 	<body>
+        	<div id="footbar">
+                        <nav><div class="nav">
+                                <ul>
+                                        <li><a href="<?php echo $uriPath; ?>">Main</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
+                                        <li><a href="#top" class="backup">&uarr; Top</a></li>
+                                </ul>
+                        </div></nav>
+                </div>
 		<div id="container">
 			<a id="top"></a>
 			<div id="header">
@@ -39,18 +53,11 @@
 					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
 					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
 					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-					<li><a href="<?php echo $uriPath; ?>entertainment/">Entertainment</a></li>
+					<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
 				</ul>
 				</div>
 				</nav>
-				<div id="charts">
-					<p class="lies">This feature is currently unavailable.</p>
-					<ul>
-						<li><?php sparkLineStock($stock1, $sname1); ?> &nbsp; <span class="charts"><?php echo$sname1; ?></span></li>
-						<li><?php sparkLineStock($stock2, $sname2); ?> &nbsp; <span class="charts"><?php echo $sname2; ?></span></li>
-						<li><?php sparkLineStock($stock3, $sname3); ?> &nbsp; <span class="charts"><?php echo $sname3; ?></span></li>
-					</ul>
-				</div>
+				<div id="charts"></div>
 				<hr />
 			</div>
 			<div id="body">
@@ -59,9 +66,12 @@
 					foreach ($feed->get_items() as $item)									
 					{
 						$feeds = $item->get_feed();
-						echo '<article><a href="'. $item->get_permalink() .'">'. $item->get_title() .'</a>&nbsp;<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a>';
+						echo '<article><a href="'. $item->get_permalink() .'">'. 
+$item->get_title() .'</a>&nbsp;<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" 
+alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a>';
 						echo '<p>'. $item->get_description() .'</p>';
-						echo '<p>'. $item->get_date().' | Source: <a href="'. $feeds->get_permalink() .'">'. $feeds->get_title() .'</a></p></article>';
+						echo '<p>'. $item->get_date().' | Source: <a href="'. 
+$feeds->get_permalink() .'">'. $feeds->get_title() .'</a></p></article>';
 						if ($counter == 10)
 						{
 							echo '<hr />';
@@ -80,23 +90,12 @@
 			</div>
 			<div id="footer">
 			<footer>
-				<p>Powered by <a href="http://simplepie.org/">SimplePie</a>.  Historic stock data from <a href="http://finance.yahoo.com/">Yahoo! Finance</a>.  Design by <a href="http://neomelonas.com/">Neo Melonas</a> &copy;2009.</p>
+				<p>Powered by <a href="http://simplepie.org/">SimplePie</a>.  Historic stock data 
+from <a href="http://finance.yahoo.com/">Yahoo! Finance</a>.  Design by <a href="http://neomelonas.com/">Neo 
+Melonas</a> &copy;2009.</p>
 				<p><?php echo_memory_usage($memdebugz); ?> </p>
 			</footer>
 			</div>
-		</div>
-		<div id="footbar">
-			<nav><!--[if IE]><div class="nav"><![endif]-->
-				<ul>
-					<li><a href="<?php echo $uriPath; ?>">Main</a></li>
-					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
-					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
-					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
-					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-					<li><a href="<?php echo $uriPath; ?>entertainment/">Entertainment</a></li>
-					<li><a href="#top" class="backup">&uarr; Top</a></li>
-				</ul>
-			<!--[if IE]></div><![endif]--></nav>
 		</div>
 		<?php include_once 'lib/js/ga.js'; ?>
 	</body>
