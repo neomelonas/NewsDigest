@@ -44,6 +44,7 @@
 				</div>
 				</nav>
 				<div id="charts">
+					<p class="lies">This feature is currently unavailable.</p>
 					<ul>
 						<li><?php sparkLineStock($stock1, $sname1); ?> &nbsp; <span class="charts"><?php echo$sname1; ?></span></li>
 						<li><?php sparkLineStock($stock2, $sname2); ?> &nbsp; <span class="charts"><?php echo $sname2; ?></span></li>
