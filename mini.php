@@ -1,58 +1,49 @@
 <?php
-	require_once ('/home/digest/lib/php/simplepie.inc');
-	//require '/home/digest/lib/php/functions.php';
-	$feed = new SimplePie();
-	$feed->set_feed_url(array(
-		'http://feeds.reuters.com/reuters/businessNews',
-		'http://online.wsj.com/xml/rss/3_7014.xml',
-		'http://feeds.nytimes.com/nyt/rss/Business',
-		'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=b&output=rss',
-		'http://feeds.reuters.com/reuters/topNews',
-		'http://online.wsj.com/xml/rss/3_7011.xml',
-		'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-		'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss',
-		'http://feeds.reuters.com/reuters/politicsNews',
-		'http://online.wsj.com/xml/rss/3_7087.xml',
-		'http://www.nytimes.com/services/xml/rss/nyt/Politics.xml',
-		'http://feeds.reuters.com/reuters/technologyNews',
-		'http://online.wsj.com/xml/rss/3_7455.xml',
-		'http://feeds.nytimes.com/nyt/rss/Technology',
-		'http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=t&output=rss',
-	));
-	$feed->set_stupidly_fast(true);
-	$feed->set_item_limit(5);
-	$feed->set_cache_location('./cache');
-	$feed->enable_order_by_date(true);
-	$feed->init();
+	require_once ('conf/settings.php');
+	require_once ('lib/php/simplepie.inc');
+	if (isset($_GET['type']))
+	{ $newsType	= $_GET['type']; }
+	else { $newsType = null; }
+	include ($install.'/lib/php/feeds.php');
 
-	$feed->handle_content_type();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mini &lt; Feed Digest | NeoMelonas.com</title>
-	<link rel="stylesheet" type="text/css" href="/lib/css/newstyle.css" />
-	<link rel="shortcut icon" href="/lib/img/favicon.ico" type="image/x-icon" /><!-- Favicon /-->
+	<title><?php echo $plug; ?> Mini Feed Digest | NeoMelonas.com</title>
+	<link rel="stylesheet" type="text/css" href="lib/css/ministyle.css" />
+	<link rel="shortcut icon" href="lib/img/favicon.ico" type="image/x-icon" /><!-- Favicon /-->
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 </head>
 	<body>
+	        	<div id="footbar">
+                        <nav><div class="nav">
+                                <ul>
+                                        <li><a href="<?php echo $uriPath; ?>mini/">Main</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/business/">Business</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/politics/">Politics</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/tech/">Technology</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/sports/">Sports</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/entertainment">Entertainment</a></li>
+                                        <li><a href="#top" class="backup">&uarr; Top</a></li>
+                                </ul>
+                        </div></nav>
+                </div>
 		<div id="container">
 			<div id="header">
-				<ul>
-					<li><h1>Mini Feed Digest</h1></li>
-				</ul>
+					<h1><?php echo $plug; ?> Mini Feed Digest</h1>
 				<hr />
 			</div>
 			<div id="body">
-				<section class="news">
-					<?php
-					foreach ($feed->get_items() as $item)									
+				<ul id="news">
+					<?php foreach ($feed->get_items() as $item)
 					{
 						$feeds = $item->get_feed();
-						echo '<article><a href="'. $item->get_permalink() .'">'. $item->get_title() .'</a></article>';
-					}
-					?>
-				</section>
+						echo "<li>";
+						echo '<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a><a href="'. $item->get_permalink() .'">'. $item->get_title() .'</a>';
+						echo "</li>";
+					} ?>
+				</ul>
 			</div>
 			<div id="footer">
 				<p>This page is powered by <a href="http://simplepie.org/">SimplePie</a>.  Designed by <a href="http://neomelonas.com/">Neo Melonas</a> &copy;2009.</p>

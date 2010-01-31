@@ -1,6 +1,6 @@
 <?php
 	// This should be set to the full path
-	require ('/home/digest/conf/settings.php');
+	require ('conf/settings.php');
 
 	require_once ($install.'/lib/php/simplepie.inc');
 	//require_once ($install.'/lib/php/sparkline/Sparkline_Line.php');
