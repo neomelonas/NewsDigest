@@ -1,18 +1,18 @@
 <?php
-	require_once ('conf/settings.php');
-	require_once ('lib/php/simplepie.inc');
+	require ('conf/settings.php');
+	require_once ($install.'/lib/php/simplepie.inc');
 	if (isset($_GET['type']))
 	{ $newsType	= $_GET['type']; }
 	else { $newsType = null; }
 	include ($install.'/lib/php/feeds.php');
-
+	$memuse	= number_format(memory_get_usage());
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title><?php echo $plug; ?> Mini Feed Digest | NeoMelonas.com</title>
-	<link rel="stylesheet" type="text/css" href="lib/css/ministyle.css" />
-	<link rel="shortcut icon" href="lib/img/favicon.ico" type="image/x-icon" /><!-- Favicon /-->
+	<link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/ministyle.css" />
+	<link rel="shortcut icon" href="<?php echo $uriPath; ?>lib/img/favicon.ico" type="image/x-icon" /><!-- Favicon /-->
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 </head>
 	<body>
@@ -20,11 +20,11 @@
                         <nav><div class="nav">
                                 <ul>
                                         <li><a href="<?php echo $uriPath; ?>mini/">Main</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/business/">Business</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/politics/">Politics</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/tech/">Technology</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/sports/">Sports</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/entertainment">Entertainment</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/?type=business">Business</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/?type=politics">Politics</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/?type=tech">Technology</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/?type=sports">Sports</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/?type=entertainment">Entertainment</a></li>
                                         <li><a href="#top" class="backup">&uarr; Top</a></li>
                                 </ul>
                         </div></nav>
@@ -32,6 +32,7 @@
 		<div id="container">
 			<div id="header">
 					<h1><?php echo $plug; ?> Mini Feed Digest</h1>
+					<p><?php echo $_SERVER['REQUEST_URI']; ?></p>
 				<hr />
 			</div>
 			<div id="body">

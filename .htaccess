@@ -1,0 +1,8 @@
+RewriteEngine On
+# For the Mini News Feed Digest
+RewriteCond %{REQUEST_URI} ^/mini/? [NC]
+RewriteRule ^/mini/([^/d]+)/?$ /?type=$1 [L]
+
+# For the normal News Feed Digest
+RewriteCond %{REQUEST_URI} ^/? [NC]
+RewriteRule ^([^/.]+)/?$ /?type=$1 [L]
