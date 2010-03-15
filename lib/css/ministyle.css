@@ -40,3 +40,5 @@ a.title{color:#336699;font-size:1.5em;text-decoration:none;}
 }
 #footbar ul, #footbar li{padding:6px 6px;margin:0;}
 #footbar a{text-decoration:none;}
+
+.backup{float:right;}/*position:fixed;bottom:5px;right:5px;}*/

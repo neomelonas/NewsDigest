@@ -1,11 +1,11 @@
 <?php
 	// Set the install directory.
 	//   NO TRAILING SLASH
-	$install = "/home/digest";
+	$install = "D:/Server/xampp/htdocs/NewsDigest/";
 	// If it is installed at the root of a (sub)domain, just put a "/", otherwise,
 	// enter the directory of the URL after the http://example.com/
 	// 
-	$uriPath = "/";
+	$uriPath = "/NewsDigest/";
 	
 	/*/
 	// A list of stocks for the SparkLines

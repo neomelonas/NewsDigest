@@ -20,11 +20,12 @@
                         <nav><div class="nav">
                                 <ul>
                                         <li><a href="<?php echo $uriPath; ?>mini/">Main</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/?type=business">Business</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/?type=politics">Politics</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/?type=tech">Technology</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/?type=sports">Sports</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>mini/?type=entertainment">Entertainment</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/business/">Business</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/politics/">Politics</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/tech/">Technology</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/sports/">Sports</a></li>
+                                        <li><a href="<?php echo $uriPath; ?>mini/entertainment/">Entertainment</a></li>
+					<li><a href="<?php echo $uriPath; ?>/">Full Feed</a></li>
                                         <li><a href="#top" class="backup">&uarr; Top</a></li>
                                 </ul>
                         </div></nav>
@@ -32,7 +33,6 @@
 		<div id="container">
 			<div id="header">
 					<h1><?php echo $plug; ?> Mini Feed Digest</h1>
-					<p><?php echo $_SERVER['REQUEST_URI']; ?></p>
 				<hr />
 			</div>
 			<div id="body">
