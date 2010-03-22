@@ -10,12 +10,14 @@
     { $newsType	= $_GET['type']; }
     else { $newsType = null; }
     include ($install.'lib/php/feeds.php');
-    $memuse	= number_format(memory_get_usage());
 ?>
 <!doctype html>
 <html>
     <head>
 	<title><?php echo $plug; ?> &lt; Feed Digest | neomelonas.com</title>
+	<!--[if IE]>
+	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/newstyle.css" />
 	<!--[if IE]>
 	    <link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/iestyle.css" />
@@ -26,39 +28,39 @@
 	<meta name="description" content="A digest of popular newsfeeds.." />
 	<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" /><!-- Specific to THIS site. /-->
     </head>
-	<body>
-    <div id="footbar">
-	<nav><div class="nav">
-	    <ul>
-		<li><a href="<?php echo $uriPath; ?>">Main</a></li>
-		<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
-		<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
-		<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
-		<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-		<li><a href="<?php echo $uriPath; ?>entertainment/">Entertainment</a></li>
-		<li><a href="<?php echo $uriPath; ?>mini/">Mini Feed</a></li>
-		<li><a href="#top" class="backup">&uarr; Top</a></li>
-	    </ul>
-	</div></nav>
-    </div>
-    <div id="container">
+    <body>
+	<div id="footbar" class="barhide">
+	    <nav><div class="nav">
+		<ul>
+		    <li><a href="<?php echo $uriPath; ?>">Main</a></li>
+		    <li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
+		    <li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
+		    <li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
+		    <li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
+		    <li><a href="<?php echo $uriPath; ?>entertainment/">Entertainment</a></li>
+		    <li><a href="<?php echo $uriPath; ?>mini/">Mini Feed</a></li>
+		    <li><a href="#top" class="backup">&uarr; Top</a></li>
+		</ul>
+	    </div></nav>
+	</div>
+	<div id="container">
 	    <a id="top"></a>
 	    <div id="header">
-		    <h1 class="title"><?php echo $plug; ?> Feed Digest</h1>
-		    <nav>
-		    <div class="nav">
+		<h1 class="title"><?php echo $plug; ?> Feed Digest</h1>
+		<nav>
+		<div class="nav">
 		    <ul>
-			    <li><a href="<?php echo $uriPath; ?>">Main</a></li>
-			    <li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
-			    <li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
-			    <li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
-			    <li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-			    <li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
+			<li><a href="<?php echo $uriPath; ?>">Main</a></li>
+			<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
+			<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
+			<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
+			<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
+			<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
 		    </ul>
-		    </div>
-		    </nav>
-		    <div id="charts"></div>
-		    <hr />
+		</div>
+		</nav>
+		<div id="charts"></div>
+		<hr />
 	    </div>
 	    <div id="body">
 		    <section class="news">
@@ -88,10 +90,11 @@
 	    <div id="footer">
 	    <footer>
 		<p>Powered by <a href="http://simplepie.org/">SimplePie</a>.  Historic stock data from <a href="http://finance.yahoo.com/">Yahoo! Finance</a>.  Design by <a href="http://neomelonas.com/">Neo Melonas</a> &copy;2009.</p>
-		<p><?php echo_memory_usage($memdebugz); ?> </p>
 	    </footer>
 	    </div>
 	</div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/NewsDigest/lib/js/navbar.js"></script>
 	<?php include_once 'lib/js/ga.js'; ?>
     </body>
 </html>
