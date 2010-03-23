@@ -94,7 +94,7 @@
 	    </div>
 	</div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" src="/NewsDigest/lib/js/navbar.js"></script>
+	<script type="text/javascript" src="<?php echo $uriPath; ?>lib/js/navbar.js"></script>
 	<?php include_once 'lib/js/ga.js'; ?>
     </body>
 </html>

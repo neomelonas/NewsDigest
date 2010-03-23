@@ -1,11 +1,11 @@
 .* # Ignore all dotfiles...
 !.gitignore # except for .gitignore
 *.itProject
-
 lib/img/favicon.ico
-
 lib/js/ga.js
-
 lib/php/*.old
-
 cache/*
+*nbproject
+!cache
+settings.php
+!settings.default.php
