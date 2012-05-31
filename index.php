@@ -7,7 +7,8 @@
 	'http://feeds.reuters.com/reuters/technologyNews',
 	'http://feeds.reuters.com/reuters/politicsNews',
 	'http://www.fool.com/feeds/index.aspx?id=foolwatch&format=rss2',
-	'http://online.wsj.com/xml/rss/3_7455.xml'
+	'http://online.wsj.com/xml/rss/3_7455.xml',
+        'http://cacm.acm.org/blogs/blog-cacm.rss',
     ));
     //enable caching
     $newsfeed->enable_cache(true);
@@ -20,7 +21,7 @@
     $newsfeed->init();
     //let simplepie handle the content type (atom, RSS...)
     $newsfeed->handle_content_type();
-    $newsfeed->strip_htmltags(array_merge($newsfeed->strip_htmltags, array('div','img')));
+    $newsfeed->strip_htmltags(array_merge($newsfeed->strip_htmltags, array('div','img','a')));
 ?><!doctype html>
 <html>
     <head>
@@ -30,12 +31,13 @@
 	<link rel="stylesheet" href="css/reset.css" type="text/css" />
 	<style>
 		body {font-size: 10px;}
-		article header {float: left;}
-		article p {float:left; padding-left: 3px;}
+                section#theNews {width: 45%;}
+		article header {float: left; padding-right: 3px;}
+		article p.contents {display: none;}
 		article a:link, article a:visited {color:#369;}
 		article a:hover {color: #7CFC00;}
 		article {clear:both;}
-		article footer {color: #888;}
+		article footer p{color: #888; display: inline-block;}
 		article footer a {color: #565656;}
 		a {text-decoration: none;}
 		span.when {border-bottom: 1px dotted #444;}
@@ -44,16 +46,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </head>
     <body>
+        <script> document.write(moment().format('dddd, MMMM Do YYYY, h:mm:ss a')); </script>
 	<section id="theNews">
-	<?php foreach($newsfeed->get_items() as $item){ $feed = $item->get_feed(); ?>
-	    <article>
+	<?php $i=1; foreach($newsfeed->get_items() as $item){ $feed = $item->get_feed(); ?>
+	    <article class="article-<?php echo $i; ?>">
 		<header>
-		    <h1><a href="<?php echo $item->get_permalink(); ?>"><?php echo $item->get_title(); ?></a></h1>
+		    <h1><a href="<?php echo $item->get_permalink(); ?>" title="<?php echo $item->get_description(); ?>"><?php echo $item->get_title(); ?></a></h1>
 		</header>
-		<p><?php echo $item->get_description(); ?></p>
-		<footer><p>Posted <span class="when" title="<?php echo $item->get_date('Y-m-d h:i a'); ?>"><script>document.write(moment("<?php echo $item->get_date('Y-m-d H:i:s'); ?>","YYYY-MM-DD HH:mm:ss").fromNow());</script></span> to <a href="<?php  echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a></p></footer>
+		<footer>
+                    <p>
+                        Posted <span class="when" title="<?php echo $item->get_date('Y-m-d h:i a'); ?>"><script>document.write(moment("<?php echo $item->get_date('Y-m-d H:i:s'); ?>","YYYY-MM-DD HH:mm:ss").fromNow());</script></span> to <a href="<?php  echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a>
+                    </p>
+                </footer>
+		<p class="contents" id="content-<?php echo $i; ?>"><?php echo $item->get_content(); ?></p>
 	    </article>
-	    <?php } ?>
+	    <?php $i++; } ?>
 	</section>
+    <!--<script>
+        $("header a").click(function(e) {e.preventDefault();$("p .content").toggle();});
+    </script>
+    /-->
     </body>
 </html>
