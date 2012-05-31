@@ -4,7 +4,6 @@
     $newsfeed = new SimplePie();
 
     $newsfeed->set_feed_url(array(
-	'http://news.google.com/news?ned=us&hl=en&output=rss',
 	'http://feeds.reuters.com/reuters/technologyNews',
 	'http://feeds.reuters.com/reuters/politicsNews',
 	'http://www.fool.com/feeds/index.aspx?id=foolwatch&format=rss2',
@@ -13,33 +12,46 @@
     //enable caching
     $newsfeed->enable_cache(true);
     //complete path for caching system
-    $newsfeed->set_cache_location('/cache');
+    $newsfeed->set_cache_location('./cache');
     //set the amount of seconds you want to cache the feed
     $newsfeed->set_cache_duration(1500);
+    $newsfeed->set_item_limit(15);
     //init the process
     $newsfeed->init();
     //let simplepie handle the content type (atom, RSS...)
     $newsfeed->handle_content_type();
-    $newsfeed->strip_htmltags;
+    $newsfeed->strip_htmltags(array_merge($newsfeed->strip_htmltags, array('div','img')));
 ?><!doctype html>
 <html>
     <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta charset="UTF-8"/>
 	<title>the news</title>
-	<link rel="stylesheet" href="<?php autoVer('/css/reset.css'); ?>" type="text/css" />
-
+	<link rel="stylesheet" href="css/reset.css" type="text/css" />
+	<style>
+		body {font-size: 10px;}
+		article header {float: left;}
+		article p {float:left; padding-left: 3px;}
+		article a:link, article a:visited {color:#369;}
+		article a:hover {color: #7CFC00;}
+		article {clear:both;}
+		article footer {color: #888;}
+		article footer a {color: #565656;}
+		a {text-decoration: none;}
+		span.when {border-bottom: 1px dotted #444;}
+	</style>
+        <script src="js/moment.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </head>
     <body>
 	<section id="theNews">
 	<?php foreach($newsfeed->get_items() as $item){ $feed = $item->get_feed(); ?>
 	    <article>
 		<header>
-		    <h1><img src="<?php $feed->get_favicon(); ?>" alt="<?php echo $feed->get_title(); ?> favicon"/><a href="<?php echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a></h1>
-		    <h2>Posted <span class="adate"><?php echo $item->get_date('c'); ?></span></h2>
+		    <h1><a href="<?php echo $item->get_permalink(); ?>"><?php echo $item->get_title(); ?></a></h1>
 		</header>
 		<p><?php echo $item->get_description(); ?></p>
-		<footer><p><?php echo $feed->get_author(); ?></p></footer>
+		<footer><p>Posted <span class="when" title="<?php echo $item->get_date('Y-m-d h:i a'); ?>"><script>document.write(moment("<?php echo $item->get_date('Y-m-d H:i:s'); ?>","YYYY-MM-DD HH:mm:ss").fromNow());</script></span> to <a href="<?php  echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a></p></footer>
 	    </article>
 	    <?php } ?>
 	</section>
