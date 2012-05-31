@@ -1,0 +1,3 @@
+[submodule "lib/simplepie"]
+	path = lib/simplepie
+	url = git://github.com/simplepie/simplepie.git

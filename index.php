@@ -1,102 +1,47 @@
 <?php
-	// This should be set to the full path
-	require ('conf/settings.php');
+  include_once("lib/simplepie/SimplePieAutoloader.php");
 
-	require_once ($install.'/lib/php/simplepie.inc');
-	//require_once ($install.'/lib/php/sparkline/Sparkline_Line.php');
-	include ($install.'/lib/php/functions.php');
+    $newsfeed = new SimplePie();
 
-	if (isset($_GET['type']))
-	{ $newsType	= $_GET['type']; }
-	else { $newsType = null; }
-	include ($install.'/lib/php/feeds.php');
-	$memuse	= number_format(memory_get_usage());
-?>
-<!doctype html>
+    $newsfeed->set_feed_url(array(
+	'http://news.google.com/news?ned=us&hl=en&output=rss',
+	'http://feeds.reuters.com/reuters/technologyNews',
+	'http://feeds.reuters.com/reuters/politicsNews',
+	'http://www.fool.com/feeds/index.aspx?id=foolwatch&format=rss2',
+	'http://online.wsj.com/xml/rss/3_7455.xml'
+    ));
+    //enable caching
+    $newsfeed->enable_cache(true);
+    //complete path for caching system
+    $newsfeed->set_cache_location('/cache');
+    //set the amount of seconds you want to cache the feed
+    $newsfeed->set_cache_duration(1500);
+    //init the process
+    $newsfeed->init();
+    //let simplepie handle the content type (atom, RSS...)
+    $newsfeed->handle_content_type();
+    $newsfeed->strip_htmltags;
+?><!doctype html>
 <html>
-	<head>
-		<title><?php echo $plug; ?> &lt; Feed Digest | neomelonas.com</title>
-		<link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/newstyle.css" />
-		<!--[if IE]>
-			<link rel="stylesheet" type="text/css" href="<?php echo $uriPath; ?>lib/css/iestyle.css" />
-		<![endif]-->
-		<link rel="shortcut icon" href="<?php echo $uriPath; ?>lib/img/favicon.ico" type="image/x-icon" />
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="content-language" content="en" />
-		<meta name="description" content="A digest of popular newsfeeds.." />
-		<meta name="google-site-verification" content="uZPoUBJX2p8Ll-FXaXPhWgd7jw9wOp26HLbTONRYBWA" /><!-- 
-Specific to THIS site. /-->
-	</head>
-	<body>
-        	<div id="footbar">
-                        <nav><div class="nav">
-                                <ul>
-                                        <li><a href="<?php echo $uriPath; ?>">Main</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-                                        <li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
-                                        <li><a href="#top" class="backup">&uarr; Top</a></li>
-                                </ul>
-                        </div></nav>
-                </div>
-		<div id="container">
-			<a id="top"></a>
-			<div id="header">
-				<h1 class="title"><?php echo $plug; ?> Feed Digest</h1>
-				<nav>
-				<div class="nav">
-				<ul>
-					<li><a href="<?php echo $uriPath; ?>">Main</a></li>
-					<li><a href="<?php echo $uriPath; ?>business/">Business</a></li>
-					<li><a href="<?php echo $uriPath; ?>politics/">Politics</a></li>
-					<li><a href="<?php echo $uriPath; ?>tech/">Technology</a></li>
-					<li><a href="<?php echo $uriPath; ?>sports/">Sports</a></li>
-					<li><a href="<?php echo $uriPath; ?>entertainment">Entertainment</a></li>
-				</ul>
-				</div>
-				</nav>
-				<div id="charts"></div>
-				<hr />
-			</div>
-			<div id="body">
-				<section class="news">
-					<?php
-					foreach ($feed->get_items() as $item)									
-					{
-						$feeds = $item->get_feed();
-						echo '<article><a href="'. $item->get_permalink() .'">'. 
-$item->get_title() .'</a>&nbsp;<a href="'.$feeds->get_permalink().'"><img src="'. $feeds->get_favicon() .'" 
-alt="'.$feeds->get_title().'" title="'.$feeds->get_title().'" border="0" width="16" height="16" /></a>';
-						echo '<p>'. $item->get_description() .'</p>';
-						echo '<p>'. $item->get_date().' | Source: <a href="'. 
-$feeds->get_permalink() .'">'. $feeds->get_title() .'</a></p></article>';
-						if ($counter == 10)
-						{
-							echo '<hr />';
-							echo "<aside class='ad'>";
-							$counter = 0;
-							include ($install.'/lib/js/ads.js');
-							echo "<details>ADVERTISEMENT</details>";
-							echo "</aside>";
-						}
-						else
-						{ $counter = $counter + 1; }
-						echo '<hr />';
-					}
-					?>
-				</section>
-			</div>
-			<div id="footer">
-			<footer>
-				<p>Powered by <a href="http://simplepie.org/">SimplePie</a>.  Historic stock data 
-from <a href="http://finance.yahoo.com/">Yahoo! Finance</a>.  Design by <a href="http://neomelonas.com/">Neo 
-Melonas</a> &copy;2009.</p>
-				<p><?php echo_memory_usage($memdebugz); ?> </p>
-			</footer>
-			</div>
-		</div>
-		<?php include_once 'lib/js/ga.js'; ?>
-	</body>
+    <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="UTF-8"/>
+	<title>the news</title>
+	<link rel="stylesheet" href="<?php autoVer('/css/reset.css'); ?>" type="text/css" />
+
+    </head>
+    <body>
+	<section id="theNews">
+	<?php foreach($newsfeed->get_items() as $item){ $feed = $item->get_feed(); ?>
+	    <article>
+		<header>
+		    <h1><img src="<?php $feed->get_favicon(); ?>" alt="<?php echo $feed->get_title(); ?> favicon"/><a href="<?php echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a></h1>
+		    <h2>Posted <span class="adate"><?php echo $item->get_date('c'); ?></span></h2>
+		</header>
+		<p><?php echo $item->get_description(); ?></p>
+		<footer><p><?php echo $feed->get_author(); ?></p></footer>
+	    </article>
+	    <?php } ?>
+	</section>
+    </body>
 </html>
