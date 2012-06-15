@@ -29,16 +29,7 @@
 	<title>the news</title>
 	<link rel="stylesheet" href="css/reset.css" type="text/css" />
 	<style>
-		body {font-size: 10px;}
-		article header {float: left;}
-		article p {float:left; padding-left: 3px;}
-		article a:link, article a:visited {color:#369;}
-		article a:hover {color: #7CFC00;}
-		article {clear:both;}
-		article footer {color: #888;}
-		article footer a {color: #565656;}
-		a {text-decoration: none;}
-		span.when {border-bottom: 1px dotted #444;}
+		
 	</style>
         <script src="js/moment.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
