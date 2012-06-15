@@ -16,16 +16,16 @@ article {
     a {
 	@include colorChange($linkColorChange);
 	text-decoration: none;
-	&link, &visited { color:$linkColor; }
-	&hover { color: $linkAlt; }
+	&:link, &:visited { color:$linkColor; }
+	&:hover { color: $linkAlt; }
     }
     footer { 
-	color: $mainColor;
-	p {
-	    float:
-	    left; padding-left: 3px;
-	    display:inline-block;
-	}
+    	color: $mainColor;
+	    p {
+	        float:
+    	    left; padding-left: 3px;
+    	    display:inline-block;
+    	}
     }
 }
 span.when {border-bottom: 1px dotted #444;}

@@ -29,7 +29,7 @@
         <meta charset="UTF-8"/>
 	<title>the news</title>
 	<link rel="stylesheet" href="css/reset.css" type="text/css" />
-	<link rel="stylesheet" href="digest.css" type="text/css" />
+	<link rel="stylesheet" href="css/digest.css" type="text/css" />
         <script src="js/moment.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </head>
