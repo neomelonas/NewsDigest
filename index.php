@@ -16,7 +16,7 @@
     $newsfeed->set_cache_location('./cache');
     //set the amount of seconds you want to cache the feed
     $newsfeed->set_cache_duration(1500);
-    $newsfeed->set_item_limit(15);
+    $newsfeed->set_item_limit(35);
     //init the process
     $newsfeed->init();
     //let simplepie handle the content type (atom, RSS...)

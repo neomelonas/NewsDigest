@@ -3,6 +3,7 @@ $mainColor: #888;
 $linkColor:#369;
 $linkAlt: #7CFC00;
 $linkColorChange: 0.5s;
+$footerLinkAlt: #900;
 @mixin colorChange($transSpeed) {
     text-decoration: none;
     -webkit-transition:color $transSpeed ease-out;
@@ -25,6 +26,11 @@ article {
 	        float:
     	    left; padding-left: 3px;
     	    display:inline-block;
+    	}
+    	a { 
+    	    &:link, &:visited { color: $linkColor; }
+    	    &:hover { color: $footerLinkAlt; }
+    	
     	}
     }
 }
