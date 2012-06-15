@@ -1,0 +1,31 @@
+$mainFontSize: 10px;
+$mainColor: #888;
+$linkColor:#369;
+$linkAlt: #7CFC00;
+$linkColorChange: 0.5s;
+@mixin colorChange($transSpeed) {
+    text-decoration: none;
+    -webkit-transition:color $transSpeed ease-out;
+    -moz-transition:color $transSpeed ease-out;
+}
+body {font-size: $mainFontSize;}
+article {
+    clear: both;
+    header { float: left; }
+    p { display: none; }
+    a {
+	@include colorChange($linkColorChange);
+	text-decoration: none;
+	&link, &visited { color:$linkColor; }
+	&hover { color: $linkAlt; }
+    }
+    footer { 
+	color: $mainColor;
+	p {
+	    float:
+	    left; padding-left: 3px;
+	    display:inline-block;
+	}
+    }
+}
+span.when {border-bottom: 1px dotted #444;}
