@@ -8,7 +8,8 @@
 	'http://feeds.reuters.com/reuters/politicsNews',
 	'http://www.fool.com/feeds/index.aspx?id=foolwatch&format=rss2',
 	'http://online.wsj.com/xml/rss/3_7455.xml',
-        'http://cacm.acm.org/blogs/blog-cacm.rss',
+    'http://www.theverge.com/rss/index.xml',
+    'http://feeds.arstechnica.com/arstechnica/index',
     ));
     //enable caching
     $newsfeed->enable_cache(true);
@@ -16,12 +17,13 @@
     $newsfeed->set_cache_location('./cache');
     //set the amount of seconds you want to cache the feed
     $newsfeed->set_cache_duration(1500);
-    $newsfeed->set_item_limit(35);
+    $newsfeed->set_item_limit(50);
     //init the process
     $newsfeed->init();
     //let simplepie handle the content type (atom, RSS...)
     $newsfeed->handle_content_type();
     $newsfeed->strip_htmltags(array_merge($newsfeed->strip_htmltags, array('div','img','a')));
+    $j=2;
 ?><!doctype html>
 <html>
     <head>
@@ -34,25 +36,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </head>
     <body>
-        <script> document.write(moment().format('dddd, MMMM Do YYYY, h:mm:ss a')); </script>
-	<section id="theNews">
-	<?php $i=1; foreach($newsfeed->get_items() as $item){ $feed = $item->get_feed(); ?>
-	    <article class="article-<?php echo $i; ?>">
-		<header>
-		    <h1><a href="<?php echo $item->get_permalink(); ?>" title="<?php echo $item->get_description(); ?>"><?php echo $item->get_title(); ?></a></h1>
-		</header>
-		<footer>
-                    <p>
-                        Posted <span class="when" title="<?php echo $item->get_date('Y-m-d h:i a'); ?>"><script>document.write(moment("<?php echo $item->get_date('Y-m-d H:i:s'); ?>","YYYY-MM-DD HH:mm:ss").fromNow());</script></span> to <a href="<?php  echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a>
-                    </p>
-                </footer>
-		<p class="contents" id="content-<?php echo $i; ?>"><?php echo $item->get_content(); ?></p>
-	    </article>
-	    <?php $i++; } ?>
+        <div id="rightNow">It is <span class="clock">&nbsp;</span>.</div>
+        <section id="theNews">
+            <div id="col1" class="cols">
+    	<?php $i=1; foreach($newsfeed->get_items() as $item){ $feed = $item->get_feed(); ?>
+	        <article class="article-<?php echo $i; ?>">
+	        <header>
+	            <h1><a href="<?php echo $item->get_permalink(); ?>" title="<?php
+        	        $cont = $item->get_description();
+                	echo $cont;
+            ?>"><?php echo $item->get_title(); ?></a></h1>
+    		</header>
+	    	<footer>
+                <p>
+                    Posted <span class="when" title="<?php echo $item->get_date('Y-m-d h:i a'); ?>"><script>document.write(moment("<?php echo $item->get_date('Y-m-d H:i:s'); ?>","YYYY-MM-DD HH:mm:ss").fromNow());</script></span> to <a href="<?php  echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a>
+                </p>
+            </footer>
+        </article>
+        <?php
+            if ($i % 50 == 0) { echo '</div><div id="col'.$j.'" class="cols">'; $j++; }
+            $i++; }
+        ?>
+        </div>
 	</section>
-    <!--<script>
-        $("header a").click(function(e) {e.preventDefault();$("p .content").toggle();});
-    </script>
-    /-->
+        <script>$(document).ready( function() { $('span.clock').replaceWith(moment().format('dddd, MMMM Do YYYY, h:mm:ss a'))});</script>
     </body>
 </html>
