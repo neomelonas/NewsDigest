@@ -1,17 +1,18 @@
 $mainFontSize: 10px;
+$bgColor: #444;
 $mainColor: #888;
-$linkColor:#369;
+$linkColor:#CCC;
 $linkAlt: #7CFC00;
 $linkColorChange: 0.5s;
-$footerLinkAlt: #900;
+$footerLinkAlt: #f00;
 @mixin colorChange($transSpeed) {
     text-decoration: none;
     -webkit-transition:color $transSpeed ease-out;
     -moz-transition:color $transSpeed ease-out;
 }
-body {font-size: $mainFontSize;}
+body {font-size: $mainFontSize; background-color: $bgColor;}
 div { float: left; position: relative; padding-left: 5px; }
-div#rightNow { float:none; padding-left: 40%; }
+div#rightNow { float:none; padding-left: 40%; color:$linkColor;}
 article {
     clear: both;
     header, footer, h1, p { display: inline; }

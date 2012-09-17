@@ -43,7 +43,7 @@
 	        <article class="article-<?php echo $i; ?>">
 	        <header>
 	            <h1><a href="<?php echo $item->get_permalink(); ?>" title="<?php
-        	        $cont = $item->get_description();
+        	        $cont = $item->get_title();
                 	echo $cont;
             ?>"><?php echo $item->get_title(); ?></a></h1>
     		</header>
