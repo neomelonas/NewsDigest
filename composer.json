@@ -1,0 +1,17 @@
+{
+    "name": "oxinai/the-news",
+    "description": "Simple headline displayer.",
+    "require": {
+        "twbs/bootstrap": "^3.3"
+    },
+    "require-dev": {
+        "simplepie/simplepie": "^1.3"
+    },
+    "authors": [
+        {
+            "name": "oxinai pescamoose",
+            "email": "oxinai@boundarygamers.com"
+        }
+    ]
+}
+

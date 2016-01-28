@@ -1,4 +1,8 @@
-cache/
-.sass-cache/
 css/digest.css
 favicon.ico
+.well-known
+node_modules
+css/*.min.css
+vendor
+composer.lock
+

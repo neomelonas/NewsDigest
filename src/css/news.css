@@ -1,0 +1,171 @@
+body { background-color: #444444;}
+@media screen and (min-width: 1200px) {
+section#theNews{
+  margin-top: 1vw;
+/*  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 2em; */
+}}
+article header { font-size: 2vw; }
+article footer { font-size: .7vw; }
+
+article {
+  border: 1px black solid;
+  border-radius: 3px;
+  padding: 2em 2em 4em;
+  margin:10px;
+  position: relative;
+  background-attachment: fixed;
+  background-position: top left;
+  background-repeat: repeat;
+}
+@media screen and (max-width: 600px){
+  article header { font-size: 18pt; }
+  article footer { font-size: 2.3vw; }
+}
+article footer, article a, article p { display:inline-block;}
+article a.article-hash { padding-right: 5px; }
+article header::after { content:'\A';}
+span.article-image {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+}
+
+footer { clear:both; float: left; position: relative; top: 13px; text-align: right;}
+
+article.wwwfoolcom {
+    background-image: url('/img/fool-bg.png');
+  color: #cccccc;
+}
+.wwwfoolcom a { color: #ffd659; }
+.wwwfoolcom span.article-image { content: url('/img/fool.png'); }
+
+article.wwwreuterscom {
+    background-image: url('/img/wt-bg.png');
+  color: #cccccc;
+}
+.wwwreuterscom a { color: #ff8301; }
+.wwwreuterscom span.article-image { max-height: 35px; content: url('/img/reuters.png'); }
+
+article.onlinewsjcom {
+    background-image: url('/img/wsj-bg.png');
+  color: #333;
+}
+.onlinewsjcom a { color: #0080c3; }
+.onlinewsjcom span.article-image { max-height: 35px; content: url('/img/wsj.png'); }
+
+article.wwwthevergecom {
+    background-image: url('/img/verge-bg.png');
+  color: #828282;
+}
+.wwwthevergecom a { color: #000000; }
+.wwwthevergecom span.article-image { max-height: 35px; content: url('/img/verge.png'); }
+
+article.wwwaljazeeracomdefaulthtml {
+    background-image: url('/img/aljazeera-bg.png');
+  color: #77a0b4;
+}
+.wwwaljazeeracomdefaulthtml a { color: #e9e9e9; }
+.wwwaljazeeracomdefaulthtml span.article-image { max-height: 35px; content: url('/img/aljazeera.png'); }
+
+article.newsycombinatorcom {
+    background-image: url('/img/yc-bg.png');
+  color: #000;
+}
+.newsycombinatorcom a { color: #f60; }
+.newsycombinatorcom span.article-image { max-height: 35px; content: url('/img/yc.png'); }
+
+article.wwwschneiercomblog {
+    background-image: url('/img/schneier-bg.png');
+  color: #000;
+}
+.wwwschneiercomblog a { color: #6b0000; }
+.wwwschneiercomblog span.article-image { max-height: 35px; content: url('/img/schneier.png'); }
+
+article.blogerrataseccom {
+    background-image: url('/img/errata-bg.png');
+  color: #fff;
+}
+.blogerrataseccom a { color: #3778cd; }
+.blogerrataseccom span.article-image { max-height: 35px; content: url('/img/errata.png'); }
+
+article.wwwwebrootcomblog {
+    background-image: url('/img/webroot-bg.png');
+  color: #f2f2f2;
+}
+.wwwwebrootcomblog a { color: #3d8840; }
+.wwwwebrootcomblog span.article-image { max-height: 35px; content: url('/img/webroot.png'); }
+
+article.wwwdarknetorguk {
+    background-image: url('/img/darknet-bg.png');
+  color: #f2f2f2;
+}
+.wwwdarknetorguk a { color: #faba76; }
+.wwwdarknetorguk span.article-image { max-height: 35px; content: url('/img/darknet.png'); }
+
+article.carnal0wnageattackresearchcom {
+    background-image: url('/img/carnal-bg.png');
+  color: #f7f7fa;
+}
+.carnal0wnageattackresearchcom a { color: #ed4b1f; }
+.carnal0wnageattackresearchcom span.article-image { max-height: 35px; content: url('/img/carnal.png'); }
+
+article.wwwsocial-engineerorg {
+    background-image: url('/img/carnal-bg.png');
+  color: #fff;
+}
+.wwwsocial-engineerorg a { color: #38a8ba; }
+.wwwsocial-engineerorg span.article-image { max-height: 35px; content: url('/img/soceng.png'); }
+
+article.nakedsecuritysophoscom {
+    background-image: url('/img/naked-security-bg.png');
+  color: #fff;
+}
+.nakedsecuritysophoscom a { color: #133644; }
+.nakedsecuritysophoscom span.article-image { max-height: 35px; content: url('/img/naked-security.png'); }
+
+article.wwwcomputerweeklycomblogsdavid_lacey {
+    background-image: url('/img/schneier-bg.png');
+  color: #0a7bc2;
+}
+.wwwcomputerweeklycomblogsdavid_lacey a { color: #f00; }
+.wwwcomputerweeklycomblogsdavid_lacey span.article-image { max-height: 35px; content: url('/img/david-lacey.png'); }
+
+article.wwwdarkreadingcom {
+    background-image: url('/img/darkreading-bg.png');
+  color: #f1f1f2;
+}
+.wwwdarkreadingcom a { color: #89060d; }
+.wwwdarkreadingcom span.article-image { max-height: 35px; content: url('/img/darkreading.png'); }
+
+article.wwwtechrepubliccommediafedtopicsecurity {
+    background-image: url('/img/techrepublic-bg.png');
+  color: #fff;
+}
+.wwwtechrepubliccommediafedtopicsecurity a { color: #54af10; }
+.wwwtechrepubliccommediafedtopicsecurity span.article-image { max-height: 35px; content: url('/img/techrepublic.png'); }
+
+article.wwwwiredcom {
+    background-image: url('/img/wired-bg.png');
+  color: #666666;
+}
+.wwwwiredcom a { color: #ffffff; }
+.wwwwiredcom span.article-image { max-height: 35px; content: url('/img/wired.png'); }
+
+article.arstechnicacom {
+    background-image: url('/img/ars-bg.png');
+  color: #83827f;
+}
+.arstechnicacom a { color: #c84700; }
+.arstechnicacom span.article-image { max-height: 35px; content: url('/img/ars.png'); }
+
+article.krebsonsecuritycom {
+    background-image: url('/img/krebs-bg.png');
+  color: #83827f;
+}
+.krebsonsecuritycom a { color: #cc6600; }
+.krebsonsecuritycom span.article-image { max-height: 35px; content: url('/img/krebs.png'); }
