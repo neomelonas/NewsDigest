@@ -29,5 +29,4 @@ grunt
 
 If you futz with the css, just run `grunt` again to re-minifize it. That's why grunt is there.
 
-Good Luck,
-Neo
+Good luck.
